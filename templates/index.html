@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto Results</title>
+    <style>
+        .ball {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            margin: 5px;
+            text-align: center;
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+        }
+        .yellow { background-color: yellow; color: black; }
+        .blue { background-color: blue; }
+        .red { background-color: red; }
+        .gray { background-color: gray; }
+        .green { background-color: green; }
+    </style>
+</head>
+<body>
+    <h1>Lotto Results</h1>
+    <div>
+        {% for result in results %}
+            <div class="result-set">
+                {% for num in result %}
+                    <div class="ball {% if num < 10 %}yellow{% elif num < 20 %}blue{% elif num < 30 %}red{% elif num < 40 %}gray{% else %}green{% endif %}">
+                        {{ num }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
